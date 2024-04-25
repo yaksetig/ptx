@@ -6,11 +6,6 @@ sequenceDiagram
     participant ra as Relayer A
     participant cc as Commit Chain
 
-    participant rb as Relayer b
-    participant plb as Privacy Ledger B
-    participant b as Bob
-
-
     autonumber
 
     note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G

@@ -1,0 +1,55 @@
+%% ZK Token Send Transfer
+sequenceDiagram
+    
+    participant a as Alice
+    participant pla as Privacy Ledger A 
+    participant ra as Relayer A
+    participant cc as Commit Chain
+
+    participant rb as Relayer b
+    participant plb as Privacy Ledger B
+    participant b as Bob
+
+
+    autonumber
+
+    note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G
+
+    
+    note over ra: has shared secrets<br>< s_1, .. s_n >
+
+    a->>pla: send 10 to Bob<br> in Privacy Ledger B (aka pk_2)
+
+    note over pla: execute tx<br>(burn 10)
+
+    note over pla: obtain new block
+
+    pla-->>a: proof of tx execution
+
+    cc-->>ra: latest block header
+
+    pla-->>ra: latest block
+
+
+    note over ra: detect<br>cross-chain tx to PL B
+
+    note over ra: create random factors:<br>r_i = Hash(block_hash, s_i)
+
+    note over ra: create commitments<br>C1 = (-10)G + (-r2-r3)H <br>C2 = (10)G + (r2)H<br>C3 = (0)G + (r3)H
+
+    note over ra: create nullifier<br>Hash(previous_r, block_hash)
+    note over ra: create zero-knowledge proof π
+
+    note over ra: obtain fingerprint<br>id = hash(block_hash, s_i)
+    note over ra: obtain new encryption key<br>k = hash(block_hash, s_i)
+    note over ra: create message<br>m = "10 from Alice in A to Bob in B"
+
+    note over ra: Encrypt tx<br>ctxt = AEAD(k, m, id)
+    ra->>cc: < C1, C2, C3, nullifier,  π, id, ctxt, mac >
+
+    note over cc: check ZK proof
+
+    note over cc: check if nullifier<br> has been used
+
+    note over cc: add commitments
+    note over cc: Updated balances:<br>C1 = 90G + (-r2-r3)H<br>C2 = 110G + (r2)H<br>C3 = 100G + (r3)H

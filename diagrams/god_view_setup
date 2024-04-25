@@ -1,0 +1,38 @@
+%% God View Key Sharing
+sequenceDiagram
+    participant pla as Privacy <br>Ledger A
+    participant ra as Relayer A
+    participant cc as Commit Chain
+    participant admin as Admin
+
+    autonumber
+
+    note over admin: create (PQ sk, PQ pk)
+
+    admin->>cc: register admin PQ pk
+
+    note over ra: has<br>(ECC pk, PQ sk, PQ pk)
+
+    ra->>cc: get admin pk
+
+    cc->>ra: A_pk
+
+
+    note over ra: Key Agreement<br>(to obtain shared secret s)
+
+    note over ra: Derive Encryption key<br>k = HKDF(s)
+
+    note over ra: Associated Data<br> ad = id A
+
+    note over ra: Message to Encrypt<br>m = PQ sk
+    note over ra: Encrypt 'view' key<br>c = AEAD(k, m, ad)
+
+    ra->>cc: publish ciphertext c
+
+    note over cc: add 'c' to list of (encrypted) view keys
+
+    cc-->>admin: c = AEAD(k, m, ad)
+
+    note over admin: check MAC
+
+    note over admin: decrypt ciphertext<br> obtain 'view' key

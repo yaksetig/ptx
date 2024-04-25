@@ -1,11 +1,13 @@
 %% Key Agreement
 sequenceDiagram
-    participant pla as Privacy <br>Ledger A
+    %%participant pla as Privacy <br>Ledger A
     participant ra as Relayer A
     participant cc as Commit Chain
 
     autonumber
 
+    note over cc: (has list of pk's)
+    
     ra->>cc: get pk's
 
     cc->>ra: <pk_1, ... , pk_n> 

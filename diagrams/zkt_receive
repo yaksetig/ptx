@@ -1,0 +1,38 @@
+%% ZK Token Transfer
+sequenceDiagram
+    
+    participant cc as Commit Chain
+
+    participant rb as Relayer b
+    participant plb as Privacy Ledger B
+    participant b as Bob
+
+
+    autonumber
+
+    note over cc: Updated balances:<br>C1 = 90G + (-r2-r3)H<br>C2 = 110G + (r2)H<br>C3 = 100G + (r3)H
+
+    note over cc: store (id, ctxt, mac)
+
+    cc->>rb: latest block
+
+    note over rb: checks if there<br>are msgs for PL B
+
+    note over rb: Detect tx  from PL A
+
+    note over rb: open commitment C2<br>with key w/ PL A<br> (remove r2)
+    note over rb: 110G balance
+    note over rb: remove G by lookup<br>in precomputed table
+    note over rb: 110 is the new balance
+
+    note over rb: check mac
+
+    note over rb: decrypt ctxt
+
+    note over rb: obtain msg<br>"10 from Alice in A to Bob in B"
+
+    rb->>plb: mint 10
+
+    note over plb: mint 10
+
+    plb->>b: new balance

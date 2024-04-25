@@ -1,0 +1,19 @@
+%% PL Registration
+sequenceDiagram
+    participant pla as Privacy <br>Ledger A
+    participant ra as Relayer A
+    participant cc as Commit Chain
+
+    autonumber
+
+    note over pla: generate ECC sk
+    note over pla: obtain ECC pk
+
+    pla->>ra: pk
+
+    note over ra: generate PQ sk
+    note over ra: obtain PQ pk
+
+    ra->>cc: register: <ECC pk, PQ pk>
+
+    note over cc: add pk's to registry

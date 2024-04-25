@@ -1,0 +1,21 @@
+%% ZK Token Setup
+sequenceDiagram
+
+    participant cc as Commit Chain
+    participant admin as Commit Chain Admin
+
+    autonumber
+
+    admin->>cc: deploy smart contract
+
+    note over cc: runs ZKT smart contract<br>(admin)
+
+    admin->>cc: register 3 participants
+
+    note over cc: pk_1, b = 0<br>pk_2, b = 0<br>pk_3, b = 0
+
+    admin->>cc: mint balance of 100 to <pk_1, pk_2, pk_3>
+
+    note over cc: pk_1, b = 100<br>pk_2, b = 100<br>pk_3, b = 100
+    note over cc: Shield balances<br>(balance times the Generator)
+    note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G

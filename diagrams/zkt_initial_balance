@@ -1,0 +1,15 @@
+%% ZK Token Initial Balance Update
+sequenceDiagram
+    
+    participant pla as Privacy Ledger A 
+    participant ra as Relayer A
+    participant cc as Commit Chain
+
+
+    autonumber
+
+    note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G
+
+    cc-->>ra: balance update
+
+    ra-->>pla: mint 100

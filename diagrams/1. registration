@@ -9,7 +9,7 @@ sequenceDiagram
     note over pla: generate ECC sk
     note over pla: obtain ECC pk
 
-    pla->>ra: pk
+    pla->>ra: ECC pk
 
     note over ra: generate PQ sk
     note over ra: obtain PQ pk

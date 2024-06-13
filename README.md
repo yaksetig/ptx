@@ -10,3 +10,5 @@ TBD
 ### Private Lookup
 TBD
 
+
+https://github.com/yaksetig/zktoken/blob/main/zkt_architecture.png?raw=true

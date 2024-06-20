@@ -11,5 +11,5 @@ TBD
 TBD
 
 <p align="center">
-  <img src="https://github.com/xoredtwice/tamarin-iceberg/blob/main/images/zkt_architecture.png" />
+  <img src="https://github.com/yaksetig/zktoken/blob/main/images/zkt_architecture.png" />
 </p>

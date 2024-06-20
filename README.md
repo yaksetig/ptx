@@ -10,5 +10,6 @@ TBD
 ### Private Lookup
 TBD
 
-
-https://github.com/yaksetig/zktoken/blob/main/zkt_architecture.png?raw=true
+<p align="center">
+  <img src="https://github.com/xoredtwice/tamarin-iceberg/blob/main/images/zkt_architecture.png" />
+</p>

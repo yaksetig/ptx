@@ -1,5 +1,10 @@
 # Rayls Privacy Token
-In this document, we cover the entire privacy token of the Rayls platform. 
+In this document, we cover the Rayls platform. 
+
+## Goals
+The goal of Rayls is to allow for financial institutions to be on blockchain rayls (hence the name). To achieve this goal, there are multiple problems that have to be solved. First, the balance sheet of all banks must be private. Second, the transaction data from users must also be private. Third, the system should be performant (i.e., thousands of transactions per second). Last, the system should be auditable for compliance purposes. Additionally, the system should ideally be quantum-ready such that advances in the quantum-computing realm do not compromise the entire past transaction history. 
+
+While these goals may seem mutually exclusive and somewhat impossible to attain, we show how to address them efficiently. 
 
 ## System Architecture
 Our architecture is simple, we assume a main EVM chain, which we call the "Commit Chain". Connected to each commit chain, there is a "Privacy Ledger". Each privacy ledger acts similarly to a validium L2. Therefore, each PL has a balance on the commit chain, but does not publish the transactions that take place internally. We note that, in our system, these balances are not public and are a feature of this privacy token.
@@ -9,6 +14,9 @@ We show below the architecture for a total of 5 financial institutions (i.e., re
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/rayls_architecture.png" />
 </p>
+
+
+
 
 
 ## Protocols

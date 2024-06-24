@@ -22,5 +22,5 @@ The commit chain is an EVM-compatible blockchain. Concretely, it is an instatiat
 ### PTX (Private Transactions) Contract
 Inside the commit chain lives a private token contract that contains the logic to check the nullifier, add Pedersen commitments. To check the correctness of the zero-knowledge proof, the PTX contract calls the verifier contract.  
 
-#### Verifier Contract
+### Verifier Contract
 This is a contract exported by Circom and deployed in the setup phase. This contract receives a zk proof and returns if the proof is correct or not. This acts as a crucial check to ensure the correct operation of the PTX contract. 

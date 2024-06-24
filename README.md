@@ -15,17 +15,17 @@ We show below the architecture for a total of 5 financial institutions (i.e., re
 The system is comprised of multiple protocols. Concretely, the network **setup step** where an admin kickstarts the network. Subsequently, we have a **registration phase** where financial institutions register their components (relayer and privacy ledger) in the network and obtain a wallet address in the network. Upon successful registration, there is a **key agreement step** where all the financials institutions obtain shared secrets with all the other financial institutions. Once all the shared secrets are established, the financial institutions must go through the **funding stage** for their accounts (either via an existing transparent balance or via the network admin). This step turns the balance into a Pedersen commitment. Upon successful funding of the account and now having a balance in the form of a commitment, institutions can now run the **private transaction protocol**, along with a **private message signaling protocol** . To receive these transactions, the financial institutions perform a **private information retrieval protocol** to download the block containing the transactions. To finalize the process, the recipients perform the opening and decryption of the transactions. 
 
 ### Setup
-First, an admin must deploy the different contracts. 
+First, an admin must kickstart the network and deploy the different contracts. For example, to have private transactions in the network, the admin must deploy the Rayls private token contract to the commit chain. 
 
 ### Registration
-TBD
+We assume two keypairs in the system. One is "EVM-Compatible" (i.e., ECDSA). The other is a post-quantum keypair (e.g., CSIDH)
 
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/key_registration.png" />
 </p>
 
 ### Key Agreement
-TBD
+Upon successful registration, the relayer must download the keys from all the other relayers to obtain a (different) shared secret with each. Therefore, in a network with N relayers, a total of N-1 agreements is performed by each relayer. (N-1 because the relayer does not need to do an agreement with themselves, so that's one less key).
 
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/key_agreement.png" />

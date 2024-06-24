@@ -27,6 +27,10 @@ TBD
 ### Key Agreement
 TBD
 
+<p align="center">
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/key_agreement.png" />
+</p>
+
 ### Funding Account(s)
 TBD
 

@@ -14,7 +14,7 @@ While these goals may seem mutually exclusive and somewhat impossible to attain,
 ## System Architecture
 Our architecture is simple, we assume a main EVM chain, which we call the "Commit Chain". Connected to each commit chain, there is a "Privacy Ledger". Each privacy ledger acts similarly to a validium L2. Therefore, each PL has a balance on the commit chain, but does not publish the transactions that take place internally. We note that, in our system, these balances are not public and are a feature of this privacy token.
 
-We show below the architecture for a total of 5 financial institutions (i.e., relayers + privacy ledgers).
+We show below the architecture for a total of 5 financial institutions (i.e., relayers + privacy ledgers). The system, however, scales linearly and can grow to large numbers of financial institutions. 
 
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/rayls_architecture.png" />

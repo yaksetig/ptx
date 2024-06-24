@@ -1,5 +1,5 @@
 # Understanding Rayls
-TBD
+In this document, we cover Rayls from a perspective more focused on the modules that run inside each network component.
 
 ## Privacy Ledger (Prover)
 The privacy ledger is basically a custom Geth client with no consensus. The main part here is to ensure that a specific trigger exists for the relayer to know that a cross-chain transaction should take place. We note that for the users (i.e., clients of financial institutions), the flow remains the exact same and nothing changes. 

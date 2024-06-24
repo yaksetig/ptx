@@ -1,8 +1,13 @@
 # Rayls Privacy Token
 In this document, we cover the Rayls platform. 
 
+## Problem Statement
+The most popular commercial bank in India has 500M users. There is no blockchain that can even support this type of volume. The situation gets worse when you consider that these transactions should be private. Moreover, the commercial banks should also be able to perform transactions (e.g., settlements) using blockchain. Similarly, these banks also have privacy requirements. 
+
+Solving this problem is particularly hard. First, the balance sheet of all banks must be private. Second, the transaction data from users must also be private. Third, the system should be performant (i.e., thousands of transactions per second). Last, the system should be auditable for compliance purposes. Additionally, the system should ideally be quantum-ready such that advances in the quantum-computing realm do not compromise the entire past transaction history. 
+
 ## Goals
-The goal of Rayls is to allow for financial institutions to be on blockchain rayls (hence the name). To achieve this goal, there are multiple problems that have to be solved. First, the balance sheet of all banks must be private. Second, the transaction data from users must also be private. Third, the system should be performant (i.e., thousands of transactions per second). Last, the system should be auditable for compliance purposes. Additionally, the system should ideally be quantum-ready such that advances in the quantum-computing realm do not compromise the entire past transaction history. 
+The goal of Rayls is to allow for financial institutions to be on blockchain rayls (hence the name). 
 
 While these goals may seem mutually exclusive and somewhat impossible to attain, we show how to address them efficiently. 
 

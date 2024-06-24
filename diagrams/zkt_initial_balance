@@ -8,6 +8,8 @@ sequenceDiagram
 
     autonumber
 
+    note over cc: mint initial balances
+
     note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G
 
     cc-->>ra: balance update

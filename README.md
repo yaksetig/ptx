@@ -45,11 +45,16 @@ Upon successful registration, the relayer must download from the commit chain th
 </p>
 
 ### Funding Account(s)
-TBD
+We assume two different types of balances per each private token in the network. The main one lives on the commit chain. The second one, however, is a wrapped version and lives inside each privacy ledger. Minting on the commit chain is only allowed by the administrator. Minting inside each privacy ledger is of the responsability of the owner of the privacy ledger. The amount inside the privacy ledger must match the amount on the commit chain. 
+
+Therefore, the process of funding accounts begins on the commit chain via the mint from the admin or via the transfer of "transparent" (e.g., ERC-20) funds to the private token contract on the main chain. During this process, the balance gets converted from a uint256 into a Pedersen commmitment (i.e., elliptic curve point). We note that whenever the private account is funded, the amount that is sent to the contract is public to anyone that has visibility to the blocks on the commit chain. However, after one single transfer from any entity in the system, there is no way to determine the balance of any of the privacy ledgers. 
 
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/initial_balances.png" />
 </p>
+
+For simplicity, the reader can imagine the flow of transfer of balances on the commit chain and then a mint or burn locally to ensure that the internal state reflects the state of the commit chain. Failure to comply to these rules are effectively fraud and are caught via the use of zero-knowledge proofs that ensure that the internal state of the privacy ledger is the same as the balance on the commit chain. 
+
 
 ### Private Message Signaling
 In our design, we assume that privacy ledgers communicate with each other via the central Commit Chain. This communication, however, must be encrypted to ensure that the data that is sent in the system is confidential. To encrypt the data we use an authenticated encryption with associated data (AEAD) scheme (i.e., AES-GCM-256). 

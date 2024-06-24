@@ -34,6 +34,10 @@ Upon successful registration, the relayer must download from the commit chain th
 ### Funding Account(s)
 TBD
 
+<p align="center">
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/initial_balance.png" />
+</p>
+
 ### Private Message Signaling
 
 ### Private Transfers

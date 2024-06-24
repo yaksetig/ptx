@@ -7,7 +7,7 @@ Our architecture is simple, we assume a main EVM chain, which we call the "Commi
 We show below the architecture for a total of 5 financial institutions (i.e., relayers + privacy ledgers).
 
 <p align="center">
-  <img src="https://github.com/yaksetig/zktoken/blob/main/rayls_architecture.png" />
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/rayls_architecture.png" />
 </p>
 
 ## Protocols

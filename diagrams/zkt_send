@@ -11,7 +11,7 @@ sequenceDiagram
     note over cc: pk_1, b = 100G<br>pk_2, b = 100G<br>pk_3, b = 100G
 
     
-    note over ra: has shared secrets<br>< s_1, .. s_n >
+    note over ra: has shared secrets<br>< s_1, ... ,  s_n >
 
     a->>pla: send 10 to Bob<br> in Privacy Ledger B (aka pk_2)
 

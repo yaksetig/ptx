@@ -20,6 +20,10 @@ First, an admin must deploy the different contracts.
 ### Registration
 TBD
 
+<p align="center">
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/key_registration.png" />
+</p>
+
 ### Key Agreement
 TBD
 

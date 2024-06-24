@@ -52,6 +52,19 @@ TBD
 </p>
 
 ### Private Message Signaling
+In our design, we assume that privacy ledgers communicate with each other via the central Commit Chain. This communication, however, must be encrypted to ensure that the data that is sent in the system is confidential. To encrypt the data we use an authenticated encryption with associated data (AEAD) scheme (i.e., AES-GCM-256). 
+
+The problem with this trivial approach is that the recipient must have a mechanism to know that there are new messages for them. For example, if privacy ledger A wants to send an encrypted message to privacy ledger B, there must be a mechanism for A to publish a message on the commit chain without revealing that it is destined for B, thus keeping the privacy of the messaging component. 
+
+To address this problem, we use a hash-based private message signaling tag that is included in the associated data of the ciphertext. The tag is calculated by hashing the latest block number along with the shared secret 's' between both parties. Therefore, t = Hash(block_number, s). As a result, the (encrypted) messages that are published on the commit chain have the following format: 
+
+**t || Enc(k, m) **
+
+In this case, t is the private message signaling tag, and Enc(k, m) represents the encryption of message "m" under (symmetric) key "k". 
+
+To detect if there are messages for them, the relayers simply perform linear work 
+
+We use the block number to ensure that the generation of these tags requires only an initial setup to obtain the shared secret. The relayers can then calculate these tags efficiently and see if there are any messages for them for that specific block. We note that this requires linear work per block as each relayer must calculate (N-1) tags. These tags, however, are very efficient to obtain and the work to generate these is parallelizable. 
 
 ### Private Transfers
 TBD

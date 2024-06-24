@@ -25,7 +25,7 @@ We assume two keypairs in the system. One is "EVM-Compatible" (i.e., ECDSA). The
 </p>
 
 ### Key Agreement
-Upon successful registration, the relayer must download the keys from all the other relayers to obtain a (different) shared secret with each. Therefore, in a network with N relayers, a total of N-1 agreements is performed by each relayer. (N-1 because the relayer does not need to do an agreement with themselves, so that's one less key).
+Upon successful registration, the relayer must download from the commit chain the keys from all the other relayers to obtain a (different) shared secret with each. Therefore, in a network with N relayers, a total of N-1 agreements is performed by each relayer. (N-1 because the relayer does not need to do an agreement with themselves, so that's one less key).
 
 <p align="center">
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/key_agreement.png" />

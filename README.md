@@ -35,7 +35,7 @@ Upon successful registration, the relayer must download from the commit chain th
 TBD
 
 <p align="center">
-  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/initial_balance.png" />
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/initial_balances.png" />
 </p>
 
 ### Private Message Signaling

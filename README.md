@@ -1,5 +1,5 @@
 # Rayls Privacy Token
-In this document, we cover the Rayls platform. 
+In this document, we cover the Rayls platform. This document is focused more on explaining the components and the overall flow during the functioning of Rayls. For a more developer-oriented documentation, please refer to the folder "developer documentation".
 
 ## Problem Statement
 The most popular commercial bank in India has 500M users. There is no blockchain that can even support this type of volume. The situation gets worse when you consider that these transactions should be private. Moreover, the commercial banks should also be able to perform transactions (e.g., settlements) using blockchain. Similarly, these banks also have privacy requirements. 

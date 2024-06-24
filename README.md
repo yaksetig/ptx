@@ -56,6 +56,10 @@ TBD
 ### Private Transfers
 TBD
 
+<p align="center">
+  <img src="https://github.com/yaksetig/zktoken/blob/main/figures/rayls_send.png" />
+</p>
+
 ### Private Information Retrieval
 TBD
 

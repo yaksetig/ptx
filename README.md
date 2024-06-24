@@ -58,7 +58,7 @@ The problem with this trivial approach is that the recipient must have a mechani
 
 To address this problem, we use a hash-based private message signaling tag that is included in the associated data of the ciphertext. The tag is calculated by hashing the latest block number along with the shared secret 's' between both parties. Therefore, t = Hash(block_number, s). As a result, the (encrypted) messages that are published on the commit chain have the following format: 
 
-**t || Enc(k, m) **
+**t || Enc(k, m)**
 
 In this case, t is the private message signaling tag, and Enc(k, m) represents the encryption of message "m" under (symmetric) key "k". 
 

@@ -79,7 +79,7 @@ TBD
 </p>
 
 ### Private Information Retrieval
-TBD
+Private information retrieval (PIR) is the ability to query a database and retrieve an item without revealing to the database which item is being queried. A trivial instantiation of PIR is simply having the user download the entire database and perform the query locally. This is dual to our setting, where the relayer of each privacy ledger downloads the latest block of the commit chain. Upon downloading the latest block, the relayer can perform the query locally and detect new messages and/or transctions. 
 
 ### Private Lookup
 TBD

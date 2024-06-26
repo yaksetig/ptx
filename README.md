@@ -78,13 +78,32 @@ TBD
   <img src="https://github.com/yaksetig/zktoken/blob/main/figures/rayls_send.png" />
 </p>
 
+**To be decided:** The message format and payload that is encrypted and attached along the PTX.  
+
 ### Private Information Retrieval
 Private information retrieval (PIR) is the ability to query a database and retrieve an item without revealing to the database which item is being queried. A trivial instantiation of PIR is simply having the user download the entire database and perform the query locally. This is dual to our setting, where the relayer of each privacy ledger downloads the latest block of the commit chain. Upon downloading the latest block, the relayer can perform the query locally and detect new messages and/or transctions. 
 
-### Private Lookup
+### Opening Received Transactions
 TBD
 
-### Transaction Opening
-TBD
+Each relayer has a list of shared secrets, one with each of all the other relayers. These secrets are used to encrypt and to send a private tag along each message. Therefore, every relayer in every block, performs a linear brute-force of O(N-1) complexity, where N is the number of relayers in the subnet.
+
+// This code can be paralelized as the actions are independent
+for i = 0; i < N-1; i++{
+    tag_i = Hash(s_i, block_number);
+    store tag_i;
+}
+
+After obtaining the tags, the relayer can perform a query. In SQL, the query would be something along these lines: 
+SELECT * 
+FROM latest_block 
+WHERE tag_i = X AND tag_j = Y (...); 
+
+The relayer can then obtain these tags and decrypt the corresponding transactions. To do so, the relayer must derive the latest encryption/decryption key, and then run the AES-GCM decrypt function to obtain the actual plaintexts and the actions to be performed (i.e., mint locally).
+
+**Important note:** This design allows for precomputation. Therefore, these operations do not have to be performed in real-time. A relayer can compute in advance the message signaling tags and the decryption keys to be "prepared in advance" and perform this step much faster. Therefore, even though this step incurs in linear performance, it can be amortized in advance to ensure a fast real-time phase. 
+
+### Minting wrapped asset
+Upon decrypting the transactions and obtaining the plaintext values that must be minted and the recipients of such funds, the relayer can trigger a mint transaction and assign funds to the respetive recipients.
 
 
